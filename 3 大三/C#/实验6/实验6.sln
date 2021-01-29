@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "作业1", "作业1\作业1.csproj", "{20154B61-051B-40E4-9C1C-241B23E61D19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "作业2", "作业2\作业2.csproj", "{E8924F30-0DD4-4F2F-9823-755BE83F5EDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20154B61-051B-40E4-9C1C-241B23E61D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20154B61-051B-40E4-9C1C-241B23E61D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20154B61-051B-40E4-9C1C-241B23E61D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20154B61-051B-40E4-9C1C-241B23E61D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8924F30-0DD4-4F2F-9823-755BE83F5EDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8924F30-0DD4-4F2F-9823-755BE83F5EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8924F30-0DD4-4F2F-9823-755BE83F5EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8924F30-0DD4-4F2F-9823-755BE83F5EDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E03AFCBA-2B31-4671-8061-0BDA36E60785}
+	EndGlobalSection
+EndGlobal

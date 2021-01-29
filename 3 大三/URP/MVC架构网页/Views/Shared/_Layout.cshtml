@@ -1,0 +1,160 @@
+﻿    <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/Scripts/Login.js"></script>
+    <script type="text/javascript" src="~/Scripts/VideoControl.js"></script>
+    <style>
+        .LinkHomePage {
+            color: green;
+            padding-right: 10px;
+        }
+
+        .LinkIndexPage {
+            padding-right: 730px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form_login" action="" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title">登录</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">用户名</label>
+                            <input type="text" class="form-control" id="Uid">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">密码</label>
+                            <input type="text" class="form-control" id="Pwd">
+                        </div>
+                        <!--
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="SaveDevice">
+                            <label class="form-check-label" for="SaveDevice">保存登录设备</label>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-link">注册</button>
+                            <button type="button" class="btn btn-link">找回密码</button>
+                        </div>
+                        -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        <input type="button" id="submit" class="btn btn-primary" value="演示点" onclick="LoginTest()">
+                        <button type="button" asp-page-handler="Tes" class="btn btn-primary" onclick="ClickLogin()">登录</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @using CowCow.Models;
+    @{
+        string url = Request.Url.ToString();
+        string num = url.Substring(17, 5);
+        url = "http://localhost:" + num;
+        string home_link = url + "/Home/Index";
+        string about_link = url + "/Home/About";
+        string cowphoto_link = url + "/CowData/Index";
+        string cowLearn = url + "/CowData/Learn";
+        string cowShow = url + "/Video/vi";
+    }
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color:green;">
+        <div style="padding-left:30px;" class="navbar-brand">
+            <img src="~/Image/top_img.jpg" width="30" height="30" class="d-inline-block align-top">
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <a class="nav-link" href=@home_link>首页</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        相关机构
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="https://www.holstein.org.cn/" target="_blank">中国奶牛数据中心</a>
+                        <a class="dropdown-item" href="http://www.bdcc.com.cn/" target="_blank">北京奶牛中心</a>
+                        <a class="dropdown-item" href="http://www.sanyuanzhongye.com" target="_blank">三元种业</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        主要功能
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @{
+                            if (UserLogin.loginsuccesful == 0)
+                            {
+                                <a class="dropdown-item" href="" onclick="LoginWarning()">图片学习</a>
+                                <a class="dropdown-item" href="" onclick="LoginWarning()">奶牛数据库编辑</a>
+                                <a class="dropdown-item" href="" onclick="LoginWarning()">奶牛视频</a>
+                            }
+                            else
+                            {
+                                <a class="dropdown-item" href="@cowLearn">图片学习</a>
+                                <a class="dropdown-item" href="@cowphoto_link">奶牛数据库编辑</a>
+                                <a class="dropdown-item"  href="@cowShow">奶牛视频</a>
+                            }
+                        }
+
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        其他
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#" onclick="CloseAll()">停止后台活动</a>
+                    </div>
+                </li>
+                <li>
+                    <a class="nav-link" href=@about_link>关于</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" style="padding-right:50px;">
+                <input class="form-control mr-sm-2" type="search" placeholder="搜索" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+            </form>
+
+            @{
+
+                if (UserLogin.loginsuccesful == 0)
+                {
+                    <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#Login">
+                        登录
+                    </button>
+                }
+                else
+                {
+                    <button class="btn btn-outline-success my-2 my-sm-0" onclick="ClickOut()">
+                        登出
+                    </button>
+                }
+            }
+
+        </div>
+    </nav>
+    <div><img id="top_pic" src="~/Image/top_img.jpg" style="width: 100%;height: 150px" /></div>
+    <section id="main">
+        @RenderBody()
+    </section>
+    <br />
+    <p style="bottom:0;padding-left:650px">Copyright CIEE. All Rights Reserved.</p>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

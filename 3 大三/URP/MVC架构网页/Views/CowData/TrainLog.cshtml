@@ -1,0 +1,14 @@
+﻿@{
+    Layout = null;
+}
+
+
+@using CowCow.Controllers;
+@{
+    List<string> logs = CowDataController.GetLogs();
+    for (int i = 0; i < logs.Count(); i++)
+    {
+        @logs[i]; <br />
+    }
+}
+

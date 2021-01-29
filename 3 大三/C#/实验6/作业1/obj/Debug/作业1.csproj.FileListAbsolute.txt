@@ -1,0 +1,10 @@
+C:\Users\lenovo\Desktop\实验6\作业1\bin\Debug\作业1.exe.config
+C:\Users\lenovo\Desktop\实验6\作业1\bin\Debug\作业1.exe
+C:\Users\lenovo\Desktop\实验6\作业1\bin\Debug\作业1.pdb
+C:\Users\lenovo\Desktop\实验6\作业1\obj\Debug\作业1.csprojAssemblyReference.cache
+C:\Users\lenovo\Desktop\实验6\作业1\obj\Debug\作业1.Properties.Resources.resources
+C:\Users\lenovo\Desktop\实验6\作业1\obj\Debug\作业1.csproj.GenerateResource.cache
+C:\Users\lenovo\Desktop\实验6\作业1\obj\Debug\作业1.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\实验6\作业1\obj\Debug\作业1.exe
+C:\Users\lenovo\Desktop\实验6\作业1\obj\Debug\作业1.pdb
+C:\Users\lenovo\Desktop\实验6\作业1\obj\Debug\作业1.BankException.resources

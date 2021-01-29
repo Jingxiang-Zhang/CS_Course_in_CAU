@@ -1,0 +1,109 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@using CowCow.Controllers;
+@using CowCow.Models;
+<script type="text/javascript" src="~/Scripts/showPicture.js"></script>
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            @{
+                int length = CowPictureShowController.getCowFactoryNum();
+                string[] name = CowPictureShowController.getCowFactoryName();
+                if (CowPic.firsttimeLoad)
+                {
+                    CowPic.firsttimeLoad = false;
+                    CowPictureShowController.getImageAndText();
+                }
+                for (int i = 0; i < length; i++)
+                {
+                    string classname;
+                    if (name[i] == CowPic.currentname)
+                    {
+                        classname = "nav-link active";
+                    }
+                    else
+                    {
+                        classname = "nav-link";
+                    }
+                    <li class="nav-item">
+                        <a class="@classname" href="" id="@name[i]" onclick="changeFactory(this)">@name[i]</a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@CowPic.currentname</h5>
+        <p class="card-text" id="cowtext">@CowPic.information</p>
+        @{
+            int number = CowPic.picnumber;
+
+            <div class="row row-cols-1 row-cols-md-3">
+                @{
+                    for (int i = 0; i < number; i++)
+                    {
+                        <div class="col mb-4">
+                            <div class="card">
+                                <img src="@CowPic.picloction[i]" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">(@CowPic.cowSortCount[i])奶牛编号：@CowPic.cowNum[i]</h5>
+                                    <button class="btn btn-primary" id="@CowPic.cowNum[i]" onclick="Edit(this)">编辑</button>
+                                    &nbsp;&nbsp;
+                                    <button class="btn btn-primary" id="@CowPic.cowNum[i]" data-toggle="modal" data-target="#DeleteOn" onclick="DeleteOn(this)">删除</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+                <div class="col mb-4">
+                    <div class="card">
+                        <img src=~/Image/add.jpg class="card-img-top" onclick="" alt="...">
+                        <div class="card-body">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#CreateNew">添加图片</button>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        }
+    </div>
+    <div class="modal fade" id="DeleteOn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="delete_group" action="" method="post">
+                    <div class="modal-body">
+                        <label for="recipient-name" id="confirmdelete" class="col-form-label">您确定要删除组号为：@CowPic.cowNum 的奶牛分组吗（此过程不可逆）</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="button" asp-page-handler="Tes" class="btn btn-primary" onclick="DeleteConfirm()">删除</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="CreateNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="delete_group" action="" method="post">
+                    <div class="modal-body">
+                        <label for="recipient-name" id="confirmdelete" class="col-form-label">请输入奶牛名称</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="AddName">
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="button" asp-page-handler="Tes" class="btn btn-primary" onclick="AddGroup()">添加</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

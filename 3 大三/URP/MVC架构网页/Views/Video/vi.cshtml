@@ -1,0 +1,84 @@
+﻿
+@using CowCow.Controllers;
+@using System.Collections.Generic
+
+<link type="text/css" rel="stylesheet" href="~/Content/VideoCss.css" />
+<script type="text/javascript" src="~/Scripts/VideoControl.js"></script>
+<!--头图-->
+<!--视频选择区-->
+<div style="height:500px;">
+    <div id="navl">
+        <div class="accordion" id="accordionExample">
+            @{
+                int FarmNum = 0;
+                DirectoryInfo root = new DirectoryInfo(CowCow.ProgramConfig.VideoData);
+                DirectoryInfo[] FarmList = root.GetDirectories();
+                bool firstTime = false;
+                string videoloc = "";
+                foreach (DirectoryInfo FarmName in FarmList)
+                {
+                    DirectoryInfo[] CameraList = FarmName.GetDirectories();
+
+                    <!--选择牛场-->
+                    <div class="card">
+                        <div class="card-header" id=@("heading"+FarmNum)>
+                            <h2 class="mb-0">
+                                <button class="btn btn-link text-dark font-weight-bold" type="button" data-toggle="collapse" data-target=@("#collapse"+FarmNum) aria-expanded="true" aria-controls=@("collapse"+FarmNum)>
+                                    <img src="~/Image/icon/home.png" style="padding-right:5px" />
+                                    @FarmName.ToString()
+                                    <img src="~/Image/icon/min.png" />
+                                </button>
+                            </h2>
+                        </div>
+                        <!--选择监控-->
+                        <div id=@("collapse"+FarmNum) class="collapse hide" aria-labelledby=@("heading"+FarmNum) data-parent="#accordionExample">
+                            <div class="card-body">
+                                @foreach (DirectoryInfo CameraName in CameraList)
+                                {
+                                    if (firstTime == false)
+                                    {
+                                        firstTime = true;
+                                        videoloc = "~/VideoDate/" + FarmName.ToString() + "/" + CameraName.ToString() + "/video.mp4";
+                                    }
+                                    <button class="btn btn-link text-dark" id="@(FarmName.ToString() +"/" + CameraName.ToString())" onclick="LoadVideo(this)">
+                                        <img src="~/Image/icon/dir.png" />
+                                        @CameraName.ToString()
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    FarmNum++;
+                }
+            }
+        </div>
+    </div>
+    <!--右侧功能栏-->
+    <div id="navr">
+        <div style="height:10px"></div>
+        <button class="buttonlable" onclick="TagCow()" ><img src="~/Image/icon/lable.png" style="padding-right:5px"/>标记奶牛</button>
+        <div style="height:50px"></div>
+        <button class="buttonleft"><img src="~/Image/icon/refresh.png" style="padding-right:5px" />刷新显示</button>
+        <div style="height:5px"></div>
+        <button class="buttonleft"><img src="~/Image/icon/start.png" style="padding-right:5px" />开始录屏</button>
+        <div style="height:5px"></div>
+        <button class="buttonleft"><img src="~/Image/icon/back.png" style="padding-right:5px" />录像回放</button>
+        <div style="height:5px"></div>
+        <button class="buttonleft"> <img src="~/Image/icon/camera.png" style="padding-right:5px" />截取屏幕</button>
+        <div style="height:5px"></div>
+        <button class="buttonleft"> <img src="~/Image/icon/set.png" style="padding-right:5px" />常规设置</button>
+        <br />  
+    </div>
+
+    <!--视频播放窗口-->
+    <div id="section" style="position:absolute;left:300px;top:210px;z-index:0;">
+        <video width="900" height="500" autoplay="autoplay" src="@videoloc" id="video" loop="loop" muted></video>
+        <!--controls="controls"-->
+    </div>
+    
+    <div id="rePic" style="position:absolute;left:428px;top:220px;z-index:1;display:none;">
+        <img id="picshow" src="~/Python/re.png" style="width:667px;height:500px"/>
+    </div>
+</div>
+
+

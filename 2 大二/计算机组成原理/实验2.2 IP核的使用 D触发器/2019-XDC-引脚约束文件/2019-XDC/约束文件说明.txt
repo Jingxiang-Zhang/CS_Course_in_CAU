@@ -1,0 +1,4 @@
+Ex_2 - 2to1.xdc    2选择1
+mux2x1verilog.xdc 2选择1 
+mux4to1.xdc 4选择1 
+dffe.xdc    触发器

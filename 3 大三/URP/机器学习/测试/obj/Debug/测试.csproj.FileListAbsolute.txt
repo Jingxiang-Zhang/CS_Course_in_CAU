@@ -1,0 +1,10 @@
+C:\Users\lenovo\Desktop\机器学习\测试\bin\Debug\测试.exe.config
+C:\Users\lenovo\Desktop\机器学习\测试\bin\Debug\测试.exe
+C:\Users\lenovo\Desktop\机器学习\测试\bin\Debug\测试.pdb
+C:\Users\lenovo\Desktop\机器学习\测试\obj\Debug\测试.Form1.resources
+C:\Users\lenovo\Desktop\机器学习\测试\obj\Debug\测试.Properties.Resources.resources
+C:\Users\lenovo\Desktop\机器学习\测试\obj\Debug\测试.csproj.GenerateResource.cache
+C:\Users\lenovo\Desktop\机器学习\测试\obj\Debug\测试.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\机器学习\测试\obj\Debug\测试.exe
+C:\Users\lenovo\Desktop\机器学习\测试\obj\Debug\测试.pdb
+C:\Users\lenovo\Desktop\机器学习\测试\obj\Debug\测试.csprojAssemblyReference.cache

@@ -1,0 +1,9 @@
+C:\Users\lenovo\Desktop\随堂测试2\题目3\bin\Debug\题目3.exe.config
+C:\Users\lenovo\Desktop\随堂测试2\题目3\bin\Debug\题目3.exe
+C:\Users\lenovo\Desktop\随堂测试2\题目3\bin\Debug\题目3.pdb
+C:\Users\lenovo\Desktop\随堂测试2\题目3\obj\Debug\题目3.Form1.resources
+C:\Users\lenovo\Desktop\随堂测试2\题目3\obj\Debug\题目3.Properties.Resources.resources
+C:\Users\lenovo\Desktop\随堂测试2\题目3\obj\Debug\题目3.csproj.GenerateResource.cache
+C:\Users\lenovo\Desktop\随堂测试2\题目3\obj\Debug\题目3.exe
+C:\Users\lenovo\Desktop\随堂测试2\题目3\obj\Debug\题目3.pdb
+C:\Users\lenovo\Desktop\随堂测试2\题目3\obj\Debug\题目3.csprojAssemblyReference.cache

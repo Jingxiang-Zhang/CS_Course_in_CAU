@@ -1,0 +1,134 @@
+{
+    "Desc": "testttt",
+    "Name": "test",
+    "Parameter": {
+        "a": null,
+        "b": null,
+        "c": null
+    },
+    "Public": {
+        "Models": [
+            {
+                "Com": "TA_MsgBox.dll",
+                "Obj": "ta"
+            }
+        ],
+        "Parameter": [
+            {
+            }
+        ]
+    },
+    "TestSuite": [
+        {
+            "Desc": "testttt",
+            "Name": "test1",
+            "Parameter": {
+                "a": "8",
+                "b": "10",
+                "c": "5"
+            },
+            "TestCase": [
+                {
+                    "Desc": "一般三角形",
+                    "Name": "t1",
+                    "Parameter": {
+                        "a": "3",
+                        "b": "4",
+                        "c": "5"
+                    }
+                },
+                {
+                    "Desc": "不是三角形",
+                    "Name": "t2",
+                    "Parameter": {
+                        "a": "0",
+                        "b": "1",
+                        "c": "2"
+                    }
+                },
+                {
+                    "Desc": "不是三角形",
+                    "Name": "t3",
+                    "Parameter": {
+                        "a": "1",
+                        "b": "0",
+                        "c": "2"
+                    }
+                },
+                {
+                    "Desc": "不是三角形",
+                    "Name": "t4",
+                    "Parameter": {
+                        "a": "1",
+                        "b": "2",
+                        "c": "0"
+                    }
+                },
+                {
+                    "Desc": "不是三角形",
+                    "Name": "t5",
+                    "Parameter": {
+                        "a": "1",
+                        "b": "2",
+                        "c": "3"
+                    }
+                },
+                {
+                    "Desc": "不是三角形",
+                    "Name": "t6",
+                    "Parameter": {
+                        "a": "1",
+                        "b": "3",
+                        "c": "2"
+                    }
+                },
+                {
+                    "Desc": "不是三角形",
+                    "Name": "t7",
+                    "Parameter": {
+                        "a": "3",
+                        "b": "1",
+                        "c": "2"
+                    }
+                },
+                {
+                    "Desc": "等腰三角形",
+                    "Name": "t8",
+                    "Parameter": {
+                        "a": "3",
+                        "b": "3",
+                        "c": "4"
+                    }
+                },
+                {
+                    "Desc": "等腰三角形",
+                    "Name": "t9",
+                    "Parameter": {
+                        "a": "3",
+                        "b": "4",
+                        "c": "4"
+                    }
+                },
+                {
+                    "Desc": "等腰三角形",
+                    "Name": "t10",
+                    "Parameter": {
+                        "a": "3",
+                        "b": "4",
+                        "c": "3"
+                    }
+                },
+                {
+                    "Desc": "等边三角形",
+                    "Name": "t11",
+                    "Parameter": {
+                        "a": "3",
+                        "b": "3",
+                        "c": "3"
+                    }
+                }
+            ]
+        }
+    ],
+    "Ver": "1.1"
+}

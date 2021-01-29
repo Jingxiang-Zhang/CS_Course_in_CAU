@@ -1,0 +1,301 @@
+#栈基地址 s0
+#t：指令指针 t1
+#b：指令基址 t2
+#p：栈顶指针 t3
+
+#传递参数 t4，t5，t4=i.a，t5=i.l
+#临时计算寄存器t6，t7
+#暂存ra的值 s8
+#函数栈顶指针寄存器t9
+.data
+        stack: .space 1000  #定义执行使用的栈
+        fun_stack: .space 1000  #定义函数栈
+        space_str: .asciiz "\n"
+
+.text
+main:
+_init:
+        addi $t1, $zero, 0   #t = 0
+        addi $t2, $zero, 0   #b = 0
+        addi $t3, $zero, 0   #p = 0
+        la $s0, stack           #获取数据栈基地址 s0 = &stack
+        la $t9, fun_stack     #获取函数栈基地址 t9 = &fun_stack
+        sw $t1, ($s0)           #*(s) = 0
+        sw $t1, 4($s0)         #*(s+4) = 0
+        sw $t1, 8($s0)         #*(s+8) = 0
+        move $s8, $ra         #寄存ra
+        j program_start
+
+_end:
+        move $ra, $s8         #释放ra
+        jr $ra                       #返回系统
+
+#立即数 A 存入 t 所指单元，t+1
+_lit:                                 
+        addu $t0, $s0, $t1  #计算栈顶地址 t0 = &stack + t
+        sw $t4, ($t0)            #保存i.a的值  *t0 = i.a
+        addiu $t1, 4            #栈顶指针自增
+        jr $ra                       #调用返回
+
+#结束被调用过程，返回调用点并退栈
+_opr_0:                            
+        move $t1, $t2          #t = b
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t2, 4($t0)           #b = s[t+1]
+        lw $t3, 8($t0)           #p = s[t+2]
+        addi $t9, -4             #函数栈顶指针--
+        lw $ra, ($t9)             #函数地址出栈
+        addi $ra, 12             #增加偏移量
+        jr $ra
+
+#求栈顶元素的相反数，结果值留在栈顶        
+_opr_1:
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)         #t6 = s[t-1]
+        sub $t6, $zero, $t6  #t6 = -t6
+        sw $t6, -4($t0)         #s[t-1] = t6
+        jr $ra
+
+#次栈顶与栈顶的值【相加】，结果存入次栈顶，t-1s
+_opr_2:
+        addi $t1, -4             #t--
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)         #t6 = s[t-1]
+        lw $t7, ($t0)             #t7 = s[t]
+        add $t6, $t7, $t6      #t6 = t6 + t7
+        sw $t6, -4($t0)         #s[t-1] = t6
+        jr $ra
+
+#次栈顶的值【减去】栈顶的值，结果存放次栈顶，t-1
+_opr_3:
+        addi $t1, -4             #t--
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)         #t6 = s[t-1]
+        lw $t7, ($t0)             #t7 = s[t]
+        sub $t6, $t6, $t7      #t6 = t6 - t7
+        sw $t6, -4($t0)         #s[t-1] = t6
+        jr $ra
+
+#次栈顶的值【乘以】栈顶的值，结果存放次栈顶，t-1
+_opr_4:
+        addi $t1, -4             #t--
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)          #t6 = s[t-1]
+        lw $t7, ($t0)             #t7 = s[t]
+        mult $t6, $t7           #lo = t6 * t7
+        mflo $t6                     #t6 = lo
+        sw $t6, -4($t0)         #s[t-1] = t6
+        jr $ra
+
+#次栈顶的值【除以】栈顶的值，结果存放次栈顶，t-1
+_opr_5:
+        addi $t1, -4             #t--
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)          #t6 = s[t-1]
+        lw $t7, ($t0)             #t7 = s[t]
+        div $t6, $t7              #t6 = t6 / t7
+        mflo $t6
+        sw $t6, -4($t0)         #s[t-1] = t6
+        jr $ra
+
+#栈顶内容若为奇数则变为 1，若为偶数则变为 0
+_opr_6:
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)         #t6 = s[t-1]
+        addi $t7, $zero, 2    #t7 = 2
+        div $t6, $t7              #hi = t6 % 2
+        mfhi $t6                   #t6 = hi
+        sw $t6, -4($t0)         #s[t-1] = t6
+        jr $ra
+
+#次栈顶与栈顶内容若相等，则将 0 存于次栈顶，t-1
+_opr_8:
+        addi $t1, -4             #t--
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)         #t6 = s[t-1]
+        lw $t7, ($t0)             #t7 = s[t]
+        sub $t6, $t6, $t7      #t6 = s[t-1] - s[t]
+        beq $t6, $zero, _opr_if_success   #赋值为0
+        j _opr_if_fail
+
+#次栈顶与栈顶内容若不相等，则将 0 存于次栈顶，t-1
+_opr_9:
+        addi $t1, -4             #t--
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)         #t6 = s[t-1]
+        lw $t7, ($t0)             #t7 = s[t]
+        sub $t6, $t6, $t7      #t6 = s[t-1] - s[t]
+        beq $t6, $zero, _opr_if_fail   #赋值为1
+        j _opr_if_success
+
+#次栈顶内容若小于栈顶，则将 0 存于次栈顶，t-1
+_opr_10:
+        addi $t1, -4             #t--
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)         #t6 = s[t-1]
+        lw $t7, ($t0)             #t7 = s[t]
+        slt $t6, $t6, $t7        #t6 = (t6 < t7)
+        bne $t6, $zero, _opr_if_success   #小于成立，赋值为1
+        j _opr_if_fail
+
+#次栈顶内容若大于等于栈顶，则将 0 存于次栈顶，t-1
+_opr_11:
+        addi $t1, -4             #t--
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)         #t6 = s[t-1]
+        lw $t7, ($t0)             #t7 = s[t]
+        sub $t5, $t6, $t7      #t6 = s[t-1] - s[t]
+        beq $t5, $zero, _opr_if_success   #等于成立，赋值为1
+        slt $t6, $t6, $t7
+        beq $t6, $zero, _opr_if_success   #小于成立，赋值为1
+        j _opr_if_fail
+
+#次栈顶内容若大于栈顶，则将 0 存于次栈顶，t-1
+_opr_12:
+        addi $t1, -4             #t--
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)         #t6 = s[t-1]
+        lw $t7, ($t0)             #t7 = s[t]
+        slt $t6, $t6, $t7        #t6 = (t6 < t7)
+        bne $t6, $zero, _opr_if_fail   #小于不成立，赋值为1
+        j _opr_if_success
+
+#次栈顶内容若小于等于栈顶，则将 0 存于次栈顶，t-1
+_opr_13:
+        addi $t1, -4             #t--
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        lw $t6, -4($t0)         #t6 = s[t-1]
+        lw $t7, ($t0)             #t7 = s[t]
+        sub $t5, $t6, $t7      #t6 = s[t-1] - s[t]
+        beq $t5, $zero, _opr_if_success   #等于成立，赋值为1
+        slt $t6, $t6, $t7
+        bne $t6, $zero, _opr_if_success   #小于成立，赋值为1
+        j _opr_if_fail
+
+#比较失败，$6=0
+_opr_if_fail:
+        addi $t6, $zero, 0     #t6 = 0
+        sw $t6, -4($t0)         #s[t-1] = 0
+        jr $ra
+
+#比较成功，$6=1
+_opr_if_success:
+        addi $t6, $zero, 1     #t6 = 1
+        sw $t6, -4($t0)         #s[t-1] = 1
+        jr $ra
+
+#栈顶的值输出至控制台屏幕，t-1
+_opr_14:
+        addi $t1, -4             #t--
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        li $v0, 1                    #设置系统中断为1，输出一个整数
+        lw $a0, ($t0)             #t6 = s[t] 
+        syscall     
+        jr $ra
+
+#控制台屏幕输出一个换行
+_opr_15:
+        li $v0, 4                    #设置系统中断为4，输出一个字符串
+        la $a0, space_str      #设置a0为换行符的地址
+        syscall
+        jr $ra
+
+#从控制台读入一行输入，置入栈顶，t+1
+_opr_16:
+        li $v0, 5                    #设置系统中断为5，读一个数到v0
+        syscall
+        addu $t0, $s0, $t1   #t0 = &stack + t
+        sw $v0, ($t0)
+        addi $t1, 4               #t++
+        jr $ra
+
+_lod:
+        move $s7, $ra          #暂存ra
+        move $2, $t5            #传递参数
+        move $3, $t2
+        jal _base_fun            #base(i.l,s,b)，结果保存t6
+        move $ra, $s7          #重新释放ra
+        add $t6, $t6, $t4      #base(i.l,s,b)+i.a
+        addu $t0, $s0, $t6   #t0 = &stack + t6
+        lw $t6, ($t0)             #t6 = s[t0]
+
+        addu $t0, $s0, $t1   #计算栈顶地址 t0 = &stack + t
+        sw $t6, ($t0)            #保存值到栈顶  *t0 = i.a
+        addiu $t1, 4             #栈顶指针自增
+        jr $ra
+
+#将栈顶的值存入层差为 L、偏移量为 A 的单元，t-1
+_sto:
+        addi $t1, -4            #栈顶指针自减
+        addu $t0, $s0, $t1   #计算栈顶地址 t0 = &stack + t
+        lw $t7, ($t0)             #保存值到栈顶  *t0 = i.a
+
+        move $s7, $ra          #暂存ra
+        move $2, $t5            #传递参数
+        move $3, $t2
+        jal _base_fun            #base(i.l,s,b)，结果保存t6
+        move $ra, $s7          #重新释放ra
+        add $t0, $t6, $t4      #base(i.l,s,b)+i.a
+        add $t0, $t0, $s0      #base(i.l,s,b)+i.a
+        sw $t7, ($t0)             #保存结果
+        jr $ra
+
+#调用地址为 A 的过程，调用过程与被调用过程的层差为 L，跳转位置保存t3
+_cal:
+        move $s7, $ra          #暂存ra
+        move $2, $t5            #传递参数
+        move $3, $t2
+        jal _base_fun            #base(i.l,s,b)，结果保存t6
+        move $ra, $s7          #重新释放ra
+        
+        addu $t0, $s0, $t1   #计算栈顶地址 t0 = &stack + t
+        sw $t6, ($t0)             #s[t]=base(i.l,s,b)  将父过程基地址入栈
+        sw $t2, 4($t0)           #s[t+1]=b  将本过程基地址入栈，此两项用于base函数
+        sw $t3, 8($t0)           #s[t+2]=p  将当前指令指针入栈
+        move $t2, $t1           #b=t 改变基地址指针值为新过程的基地址
+        move $t3, $t4           #p=i.a 跳转       
+        jr $ra
+
+#在栈顶开辟 A 个存储单元
+_inte:
+        add $t1, $t1, $t4       #t+=i.a 
+        jr $ra
+
+#无条件转移至地址 A，但是不适用，这个程序段不使用
+_jmp:
+        move $t3, $t4
+        jr $ra
+
+#若栈顶为 0，则转移至地址 A，t-1，是否跳转成功结果保存到t3，0表示跳转
+_jpc:
+        addu $t1, -4            #栈顶指针自减
+        addu $t0, $s0, $t1    #计算栈顶地址 t0 = &stack + t
+        lw $t3, ($t0)              #保存值到栈顶 *t0 = i.a
+        jr $ra
+
+
+#通过过程基址求上1层过程的基址
+#其中，s2 = l，s3=b，返回值为t6，t6=b1
+_base_fun:
+        add $t6, $zero, $s3   #b1 = b
+        _base_fun_start:
+        beq $s2, $zero, _base_fun_done
+                                          # if l == 0 then goto _base_fun_done
+        addu $t0, $s0, $t6     #t0 = &stack + b1
+        lw $t6, ($t0)               #t6 = s[t]
+        addi $s2, $s2, -1        #l--
+        j _base_fun_start        #goto _base_fun_start
+        _base_fun_done:
+        jr $ra
+
+
+#栈基地址 s0
+#t：指令指针 t1
+#b：指令基址 t2
+#p：栈顶指针 t3
+
+#传递参数 t4，t5，t4=i.a，t5=i.l
+#临时计算寄存器t6，t7
+#暂存ra的值 s8
+
+program_start:

@@ -1,0 +1,10 @@
+C:\Users\lenovo\Desktop\测试1\第6题\bin\Debug\netcoreapp2.1\第6题.deps.json
+C:\Users\lenovo\Desktop\测试1\第6题\bin\Debug\netcoreapp2.1\第6题.runtimeconfig.json
+C:\Users\lenovo\Desktop\测试1\第6题\bin\Debug\netcoreapp2.1\第6题.runtimeconfig.dev.json
+C:\Users\lenovo\Desktop\测试1\第6题\bin\Debug\netcoreapp2.1\第6题.dll
+C:\Users\lenovo\Desktop\测试1\第6题\bin\Debug\netcoreapp2.1\第6题.pdb
+C:\Users\lenovo\Desktop\测试1\第6题\obj\Debug\netcoreapp2.1\第6题.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\测试1\第6题\obj\Debug\netcoreapp2.1\第6题.AssemblyInfoInputs.cache
+C:\Users\lenovo\Desktop\测试1\第6题\obj\Debug\netcoreapp2.1\第6题.AssemblyInfo.cs
+C:\Users\lenovo\Desktop\测试1\第6题\obj\Debug\netcoreapp2.1\第6题.dll
+C:\Users\lenovo\Desktop\测试1\第6题\obj\Debug\netcoreapp2.1\第6题.pdb

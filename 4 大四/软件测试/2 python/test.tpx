@@ -1,0 +1,24 @@
+{
+    "BarCodeReg": "",
+    "Desc": "test test",
+    "GUIPlugins": [
+        {
+            "Com": "GUI_TA_MsgBox.dll",
+            "Name": "msg"
+        }
+    ],
+    "Instance": [
+        {
+            "File": "test.tp",
+            "Name": "Test1",
+            "Parameter": [
+                {
+                }
+            ]
+        }
+    ],
+    "LoopCount": 1,
+    "Name": "test",
+    "failedToStop": false,
+    "stoppedForLoop": false
+}

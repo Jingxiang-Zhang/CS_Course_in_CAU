@@ -1,0 +1,11 @@
+C:\Users\lenovo\Desktop\张靖祥2017304010413\测验2\bin\Debug\netcoreapp2.1\测验2.deps.json
+C:\Users\lenovo\Desktop\张靖祥2017304010413\测验2\bin\Debug\netcoreapp2.1\测验2.runtimeconfig.json
+C:\Users\lenovo\Desktop\张靖祥2017304010413\测验2\bin\Debug\netcoreapp2.1\测验2.runtimeconfig.dev.json
+C:\Users\lenovo\Desktop\张靖祥2017304010413\测验2\bin\Debug\netcoreapp2.1\测验2.dll
+C:\Users\lenovo\Desktop\张靖祥2017304010413\测验2\bin\Debug\netcoreapp2.1\测验2.pdb
+C:\Users\lenovo\Desktop\张靖祥2017304010413\测验2\obj\Debug\netcoreapp2.1\测验2.csprojAssemblyReference.cache
+C:\Users\lenovo\Desktop\张靖祥2017304010413\测验2\obj\Debug\netcoreapp2.1\测验2.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\张靖祥2017304010413\测验2\obj\Debug\netcoreapp2.1\测验2.AssemblyInfoInputs.cache
+C:\Users\lenovo\Desktop\张靖祥2017304010413\测验2\obj\Debug\netcoreapp2.1\测验2.AssemblyInfo.cs
+C:\Users\lenovo\Desktop\张靖祥2017304010413\测验2\obj\Debug\netcoreapp2.1\测验2.dll
+C:\Users\lenovo\Desktop\张靖祥2017304010413\测验2\obj\Debug\netcoreapp2.1\测验2.pdb

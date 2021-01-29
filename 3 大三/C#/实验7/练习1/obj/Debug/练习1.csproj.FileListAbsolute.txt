@@ -1,0 +1,11 @@
+C:\Users\lenovo\Desktop\实验7\练习1\bin\Debug\练习1.exe.config
+C:\Users\lenovo\Desktop\实验7\练习1\bin\Debug\练习1.exe
+C:\Users\lenovo\Desktop\实验7\练习1\bin\Debug\练习1.pdb
+C:\Users\lenovo\Desktop\实验7\练习1\obj\Debug\练习1.csprojAssemblyReference.cache
+C:\Users\lenovo\Desktop\实验7\练习1\obj\Debug\练习1.Properties.Resources.resources
+C:\Users\lenovo\Desktop\实验7\练习1\obj\Debug\练习1.csproj.GenerateResource.cache
+C:\Users\lenovo\Desktop\实验7\练习1\obj\Debug\练习1.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\实验7\练习1\obj\Debug\练习1.exe
+C:\Users\lenovo\Desktop\实验7\练习1\obj\Debug\练习1.pdb
+C:\Users\lenovo\Desktop\实验7\练习1\obj\Debug\练习1.Form1.resources
+C:\Users\lenovo\Desktop\实验7\练习1\obj\Debug\练习1.son_form.resources

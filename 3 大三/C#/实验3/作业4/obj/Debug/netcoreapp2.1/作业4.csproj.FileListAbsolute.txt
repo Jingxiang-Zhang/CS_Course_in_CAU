@@ -1,0 +1,11 @@
+C:\Users\lenovo\Desktop\实验3\作业4\bin\Debug\netcoreapp2.1\作业4.deps.json
+C:\Users\lenovo\Desktop\实验3\作业4\bin\Debug\netcoreapp2.1\作业4.runtimeconfig.json
+C:\Users\lenovo\Desktop\实验3\作业4\bin\Debug\netcoreapp2.1\作业4.runtimeconfig.dev.json
+C:\Users\lenovo\Desktop\实验3\作业4\bin\Debug\netcoreapp2.1\作业4.dll
+C:\Users\lenovo\Desktop\实验3\作业4\bin\Debug\netcoreapp2.1\作业4.pdb
+C:\Users\lenovo\Desktop\实验3\作业4\obj\Debug\netcoreapp2.1\作业4.csprojAssemblyReference.cache
+C:\Users\lenovo\Desktop\实验3\作业4\obj\Debug\netcoreapp2.1\作业4.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\实验3\作业4\obj\Debug\netcoreapp2.1\作业4.AssemblyInfoInputs.cache
+C:\Users\lenovo\Desktop\实验3\作业4\obj\Debug\netcoreapp2.1\作业4.AssemblyInfo.cs
+C:\Users\lenovo\Desktop\实验3\作业4\obj\Debug\netcoreapp2.1\作业4.dll
+C:\Users\lenovo\Desktop\实验3\作业4\obj\Debug\netcoreapp2.1\作业4.pdb

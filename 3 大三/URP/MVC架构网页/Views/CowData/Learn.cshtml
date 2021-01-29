@@ -1,0 +1,100 @@
+﻿
+<script type="text/javascript" src="~/Scripts/machineLearn.js"></script>
+<div class="modal fade" id="Learn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form name="form_login" action="" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title">您确定要进行学习吗，此过程可能消耗大量的时间，具体的学习进度可以在下面查看</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="learncancel" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" asp-page-handler="Tes" class="btn btn-primary" onclick="startLearn()">开始学习</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Deletelog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form name="form_login" action="" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title">确定删除训练日志？</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="deletecancel" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" asp-page-handler="Tes" class="btn btn-primary" onclick="trainlogDelete()">确定</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+<div>
+    <div style="width:10%;float:left">
+        &nbsp;
+    </div>
+    <div style="width:80%;float:left">
+        @using CowCow.Controllers;
+        @using CowCow.Models;
+        @{
+            int length = CowPictureShowController.getCowFactoryNum();
+            string[] name = CowPictureShowController.getCowFactoryName();
+            string[] titleid = new string[length];
+            string[] startid = new string[length];
+            string[] stopid = new string[length];
+            string[] barid = new string[length];
+            string[] stopdisplayid = new string[length];
+            for (int i = 0; i < length; i++)
+            {
+                titleid[i] = "title" + name[i];
+                startid[i] = "start" + name[i];
+                barid[i] = "bar" + name[i];
+                stopid[i] = "stop" + name[i];
+                stopdisplayid[i] = "stopdiv" + name[i];
+            }
+            for (int i = 0; i < length; i++)
+            {
+                <div>
+                    <h5>奶牛场名称：@name[i]。</h5>
+                    <h5 id="@titleid[i]">状态：已完成</h5>
+                    <div class="progress">
+                        <div class="progress-bar" id="@barid[i]" role="progressbar" style="width:0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                    </div>
+                    <br />
+                    <div>
+                        <div style="float:left; ">
+                            <button id="@startid[i]" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#Learn" onclick="SetStartName(this)">
+                                开始
+                            </button>
+                        </div>
+                        <div id="@stopdisplayid[i]" style="float:left; display:block;">
+                            &nbsp;&nbsp;
+                            <button id="@stopid[i]" class="btn btn-outline-success my-2 my-sm-0" onclick="learnStopOrContinue(this)">
+                                暂停
+                            </button>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            }
+        }
+        <button id="trainlog" class="btn btn-outline-success my-2 my-sm-0" onclick="trainlogShow()">
+            查看训练日志
+        </button>
+        &nbsp;&nbsp;
+        <button id="trainlog" class="btn btn-outline-success my-2 my-sm-0"data-toggle="modal" data-target="#Deletelog">
+            清除训练日志
+        </button>
+    </div>
+    <div style="width:10%;">
+        &nbsp;
+    </div>
+</div>
+
+
+
+

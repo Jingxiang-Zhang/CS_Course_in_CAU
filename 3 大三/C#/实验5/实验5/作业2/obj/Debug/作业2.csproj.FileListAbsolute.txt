@@ -1,0 +1,10 @@
+C:\Users\lenovo\Desktop\作业1\作业2\bin\Debug\作业2.exe.config
+C:\Users\lenovo\Desktop\作业1\作业2\bin\Debug\作业2.exe
+C:\Users\lenovo\Desktop\作业1\作业2\bin\Debug\作业2.pdb
+C:\Users\lenovo\Desktop\作业1\作业2\obj\Debug\作业2.Form1.resources
+C:\Users\lenovo\Desktop\作业1\作业2\obj\Debug\作业2.Properties.Resources.resources
+C:\Users\lenovo\Desktop\作业1\作业2\obj\Debug\作业2.csproj.GenerateResource.cache
+C:\Users\lenovo\Desktop\作业1\作业2\obj\Debug\作业2.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\作业1\作业2\obj\Debug\作业2.exe
+C:\Users\lenovo\Desktop\作业1\作业2\obj\Debug\作业2.pdb
+C:\Users\lenovo\Desktop\作业1\作业2\obj\Debug\作业2.csprojAssemblyReference.cache

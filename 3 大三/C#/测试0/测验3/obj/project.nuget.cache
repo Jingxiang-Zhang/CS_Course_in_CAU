@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "wnIlBKQhRT8KjcP1XMywggA8X4i4gijI1+o66dADyAQ1bCpb/0x8hpcUtxsB/ccbHJ+8byVqfntofUFvg69DIg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ZJX\\Desktop\\C#\\测试0\\2017304010413 张靖祥\\测验3\\测验3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ZJX\\.nuget\\packages\\microsoft.netcore.app\\2.1.0\\microsoft.netcore.app.2.1.0.nupkg.sha512",
+    "C:\\Users\\ZJX\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.1.0\\microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",
+    "C:\\Users\\ZJX\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.1.0\\microsoft.netcore.dotnethostpolicy.2.1.0.nupkg.sha512",
+    "C:\\Users\\ZJX\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.1.0\\microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
+    "C:\\Users\\ZJX\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
+    "C:\\Users\\ZJX\\.nuget\\packages\\microsoft.netcore.targets\\2.1.0\\microsoft.netcore.targets.2.1.0.nupkg.sha512",
+    "C:\\Users\\ZJX\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

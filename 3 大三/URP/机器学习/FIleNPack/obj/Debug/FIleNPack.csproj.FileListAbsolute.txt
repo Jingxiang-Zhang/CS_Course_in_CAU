@@ -1,0 +1,5 @@
+F:\大三上\机器学习\FIleNPack\bin\Debug\FIleNPack.dll
+F:\大三上\机器学习\FIleNPack\bin\Debug\FIleNPack.pdb
+F:\大三上\机器学习\FIleNPack\obj\Debug\FIleNPack.csprojAssemblyReference.cache
+F:\大三上\机器学习\FIleNPack\obj\Debug\FIleNPack.dll
+F:\大三上\机器学习\FIleNPack\obj\Debug\FIleNPack.pdb

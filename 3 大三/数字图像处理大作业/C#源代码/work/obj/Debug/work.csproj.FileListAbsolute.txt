@@ -1,0 +1,16 @@
+F:\大三下\数字图像处理\实验作业\大作业\work\work\bin\Debug\work.exe.config
+F:\大三下\数字图像处理\实验作业\大作业\work\work\bin\Debug\work.exe
+F:\大三下\数字图像处理\实验作业\大作业\work\work\bin\Debug\work.pdb
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.csprojAssemblyReference.cache
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.Author.resources
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.Form1.resources
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.Properties.Resources.resources
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.csproj.GenerateResource.cache
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.exe
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.pdb
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.Image_form.resources
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.linear_change.resources
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.gamma_form.resources
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.add_form.resources
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.filter_form.resources
+F:\大三下\数字图像处理\实验作业\大作业\work\work\obj\Debug\work.face_form.resources

@@ -1,0 +1,71 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@using CowCow.Controllers;
+@using CowCow.Models;
+<script type="text/javascript" src="~/Scripts/showPicture.js"></script>
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link" id="@CowPic.currentname" onclick="ReturnLoc(this)">返回</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">当前正在编辑："@CowPic.currentname" 奶牛场，编号为："@CowPic.cowSortName" 的奶牛</h5>
+        @{
+            int number = CowPic.cowBunchPicNum;
+            <div class="row row-cols-1 row-cols-md-3">
+                @{
+                    for (int i = 0; i < number; i++)
+                    {
+                        <div class="col mb-4">
+                            <div class="card">
+                                <img src="@CowPic.cowBunchPicLoc[i]" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">@CowPic.cowBunchPicName[i]</h5>
+                                    <a href="@CowPic.cowBunchPicLoc[i]" class="btn btn-primary" download="@CowPic.cowBunchPicName[i]">下载</a>
+                                    &nbsp;&nbsp;
+                                    <button class="btn btn-primary" id="@CowPic.cowBunchPicName[i]" data-toggle="modal" data-target="#DeleteOn" onclick="DeletePic(this)">删除</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+                <div class="col mb-4">
+                    <div class="card">
+                        <img src=~/Image/add.jpg class="card-img-top" onclick="" alt="...">
+                        <div class="card-body">
+                            <form action="@Url.Action("SavePictureByForm", new { @factory = @ViewData["factory"] })" enctype="multipart/form-data" method="post">
+                                <input id="pic" name="pic" type="file" multiple />
+                                <input type="submit" class="btn btn-primary" value="提交" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="modal fade" id="DeleteOn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="delete_group" action="" method="post">
+                    <div class="modal-body">
+                        <label for="recipient-name" id="confirmdelete" class="col-form-label">这张图片吗（此过程不可逆）</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="button" asp-page-handler="Tes" class="btn btn-primary" onclick="DeletePicConfirm()">删除</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+</div>

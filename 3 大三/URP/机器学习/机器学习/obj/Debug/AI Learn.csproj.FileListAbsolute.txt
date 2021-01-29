@@ -1,0 +1,13 @@
+F:\大三上\机器学习\机器学习\bin\Debug\机器学习.exe.config
+F:\大三上\机器学习\机器学习\bin\Debug\机器学习.exe
+F:\大三上\机器学习\机器学习\bin\Debug\机器学习.pdb
+F:\大三上\机器学习\机器学习\obj\Debug\机器学习.FormLoadWaiting.resources
+F:\大三上\机器学习\机器学习\obj\Debug\机器学习.LeftToolTipNet.resources
+F:\大三上\机器学习\机器学习\obj\Debug\机器学习.MainForm.resources
+F:\大三上\机器学习\机器学习\obj\Debug\机器学习.Properties.Resources.resources
+F:\大三上\机器学习\机器学习\obj\Debug\机器学习.RightAttribute.resources
+F:\大三上\机器学习\机器学习\obj\Debug\AI Learn.csproj.GenerateResource.cache
+F:\大三上\机器学习\机器学习\obj\Debug\AI Learn.csproj.CopyComplete
+F:\大三上\机器学习\机器学习\obj\Debug\机器学习.exe
+F:\大三上\机器学习\机器学习\obj\Debug\机器学习.pdb
+F:\大三上\机器学习\机器学习\obj\Debug\AI Learn.csprojAssemblyReference.cache

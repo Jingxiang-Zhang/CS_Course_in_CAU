@@ -1,0 +1,5 @@
+C:\Users\lenovo\Desktop\随堂测试2\题目4\bin\Debug\题目4.exe.config
+C:\Users\lenovo\Desktop\随堂测试2\题目4\bin\Debug\题目4.exe
+C:\Users\lenovo\Desktop\随堂测试2\题目4\bin\Debug\题目4.pdb
+C:\Users\lenovo\Desktop\随堂测试2\题目4\obj\Debug\题目4.exe
+C:\Users\lenovo\Desktop\随堂测试2\题目4\obj\Debug\题目4.pdb

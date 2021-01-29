@@ -1,0 +1,12 @@
+set_property IOSTANDARD LVCMOS33 [get_ports clk]
+set_property IOSTANDARD LVCMOS33 [get_ports clrn]
+set_property IOSTANDARD LVCMOS33 [get_ports d]
+set_property IOSTANDARD LVCMOS33 [get_ports q]
+set_property IOSTANDARD LVCMOS33 [get_ports wen]
+set_property PACKAGE_PIN P4 [get_ports clk]
+set_property PACKAGE_PIN W9 [get_ports clrn]
+set_property PACKAGE_PIN W4 [get_ports d]
+set_property PACKAGE_PIN A21 [get_ports q]
+set_property PACKAGE_PIN Y9 [get_ports wen]
+
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk_IBUF] 

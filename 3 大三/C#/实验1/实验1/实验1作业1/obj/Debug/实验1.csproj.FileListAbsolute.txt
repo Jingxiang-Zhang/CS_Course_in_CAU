@@ -1,0 +1,7 @@
+C:\Users\lenovo\Desktop\实验1\实验1\bin\Debug\实验1.exe.config
+C:\Users\lenovo\Desktop\实验1\实验1\bin\Debug\实验1.exe
+C:\Users\lenovo\Desktop\实验1\实验1\bin\Debug\实验1.pdb
+C:\Users\lenovo\Desktop\实验1\实验1\obj\Debug\实验1.csprojAssemblyReference.cache
+C:\Users\lenovo\Desktop\实验1\实验1\obj\Debug\实验1.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\实验1\实验1\obj\Debug\实验1.exe
+C:\Users\lenovo\Desktop\实验1\实验1\obj\Debug\实验1.pdb
