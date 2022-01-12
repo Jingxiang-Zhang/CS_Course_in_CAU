@@ -14,3 +14,20 @@ python	文件数: 106	代码行数: 5500
 c & c++	文件数: 364	代码行数: 34127 
 c#	文件数: 96	代码行数: 9116  
 总计	文件数: 672	代码行数: 54912 
+
+
+This warehouse stores all codes during college, but the storage of codes is not complete due to the following reasons  
+ 
+The coding of some tasks has an independent platform and is not saved separately, including artificial intelligence operations.  
+Part of the code was recorded in word document, which was difficult to find, including assembly code of interface technology experiment, etc.  
+Part of the task programming to assist, do not submit as a job, no remaining, including computer networks;  
+Other notes:  
+ 
+Codes jointly completed by cooperation will not be recorded, including software engineering operations;  
+HTML and other front-end codes are not recorded, only C, C++, C#, Java, Python code statistics  
+Designer, Program and AssemblyInfo generated automatically in C# are not counted  
+The statistics script is statistics.py  
+Number of Java files: 106 Lines of code: 6169  
+Number of Python files: 106 Lines of code: 5500  
+C & C ++ files: 364 lines of code: 34127 C # files: 96 lines of code: 9116  
+Total files: 672 lines of code: 54912  
